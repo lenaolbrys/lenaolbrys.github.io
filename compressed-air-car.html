@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Compressed Air-Powered Car</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- BACK LINK -->
+  <a href="index.html">← Back to Portfolio</a>
+
+  <!-- =========================
+       PROJECT TITLE / HERO
+  ========================== -->
+
+  <header class="project-hero">
+
+    <h1>Autonomous Robot Navigation</h1>
+
+    <p class="project-tagline">
+      Real-time robot navigation system using sensor fusion and computer vision.
+    </p>
+
+    <!-- Optional: image or demo -->
+    <img src="robot-hero.png" alt="Project overview image" class="hero-image">
+
+  </header>
+
+  <!-- =========================
+       OVERVIEW
+  ========================== -->
+
+  <section>
+
+    <h2>Overview</h2>
+
+    <p>
+      This project focused on the integration of homemade sustainable fuel with a road-vehicle optimized for
+      drag reduction. My work on the project centered around vehicle design, construction, and testing. I 
+      CADed three vehicle models, analyzed their aerodynamic performance in Autodesk CFD, and constructed
+      the model I deemed most aerodynamically efficient. 
+    </p>
+
+  </section>
+
+  <!-- =========================
+       PROBLEM
+  ========================== -->
+
+  <section>
+
+    <h2>Problem</h2>
+
+    <p>
+      Most basic navigation systems fail under real-world conditions due to:
+    </p>
+
+    <ul>
+      <li>Sensor noise and inconsistent readings</li>
+      <li>High latency in decision-making loops</li>
+      <li>Lack of robust obstacle detection</li>
+    </ul>
+
+    <p>
+      The goal was to design a system that remains stable under noisy, real-time conditions.
+    </p>
+
+  </section>
+
+  <!-- =========================
+       SYSTEM ARCHITECTURE
+  ========================== -->
+
+  <section>
+
+    <h2>System Architecture</h2>
+
+    <p>
+      The system consists of three main components:
+    </p>
+
+    <ul>
+      <li>Sensor input layer (LiDAR + camera)</li>
+      <li>Processing pipeline (filtering + fusion)</li>
+      <li>Decision-making controller</li>
+    </ul>
+
+    <!-- Optional diagram -->
+    <img src="architecture.png" alt="System architecture diagram" class="content-image">
+
+  </section>
+
+  <!-- =========================
+       IMPLEMENTATION DETAILS
+  ========================== -->
+
+  <section>
+
+    <h2>Implementation</h2>
+
+    <h3>Sensor Processing</h3>
+    <p>
+      Raw LiDAR data was filtered using a moving average filter to reduce noise.
+    </p>
+
+    <h3>Computer Vision</h3>
+    <p>
+      OpenCV was used for obstacle detection from camera frames.
+    </p>
+
+    <h3>Control System</h3>
+    <p>
+      A simple reactive controller was implemented to adjust robot direction
+      based on obstacle proximity.
+    </p>
+
+  </section>
+
+  <!-- =========================
+       CHALLENGES
+  ========================== -->
+
+  <section>
+
+    <h2>Challenges</h2>
+
+    <ul>
+      <li>Handling inconsistent sensor updates at high frequency</li>
+      <li>Reducing latency in decision loop from 180ms → 40ms</li>
+      <li>Synchronizing camera and LiDAR timestamps</li>
+    </ul>
+
+  </section>
+
+  <!-- =========================
+       RESULTS
+  ========================== -->
+
+  <section>
+
+    <h2>Results</h2>
+
+    <ul>
+      <li>Achieved 40ms average decision latency</li>
+      <li>Improved obstacle detection stability by ~30%</li>
+      <li>Maintained real-time operation at 60 FPS input</li>
+    </ul>
+
+  </section>
+
+  <!-- =========================
+       LESSONS LEARNED
+  ========================== -->
+
+  <section>
+
+    <h2>Lessons Learned</h2>
+
+    <p>
+      The biggest improvement came from simplifying the pipeline rather than
+      adding complexity. Early versions overcomplicated sensor fusion, which
+      increased latency instead of improving accuracy.
+    </p>
+
+  </section>
+
+  <!-- =========================
+       LINKS
+  ========================== -->
+
+  <section>
+
+    <h2>Links</h2>
+
+    <ul>
+      <li>
+        <a href="https://github.com/yourusername/project">
+          GitHub Repository
+        </a>
+      </li>
+
+      <li>
+        <a href="demo-video.mp4">
+          Demo Video
+        </a>
+      </li>
+    </ul>
+
+  </section>
+
+</body>
+</html>
