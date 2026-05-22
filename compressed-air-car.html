@@ -71,9 +71,8 @@
     <h2>Problem</h2>
 
     <p>
-      Vehicle carbon emissions are a huge contributor to global climate change. Our goal was to design a low-drag road vehicle
-      that utilizes a biofuel rather than a fossil fuel and operates with improved aerodynamic efficiency to reduce total 
-      fuel consumption. 
+      Vehicle carbon emissions are a huge contributor to global climate change. Our goal was to test the efficiency
+      of a homemade biofuel compared with standard pump diesel on a road vehicle optimized for drag reduction.
     </p>
     
   </section>
@@ -226,26 +225,52 @@
 
   <section>
 
-    <h2>Implementation</h2>
+    <h2>Vehicle Construction and Testing</h2>
 
-    <h3>Sensor Processing</h3>
+    <h3>Canister Testing</h3>
     <p>
-      Raw LiDAR data was filtered using a moving average filter to reduce noise.
+      We began by setting parameters for our vehicle. Using the Armma Vendetta RC Car Chassis as our base,
+      we determined we could fit six CO2 canisters on the back of our vehicle. We then conducted a series 
+      of twenty trials to measure the average impulse of the canisters (3.4 N/s) and determined our vehicle
+      could not exceed a mass of 2.9 kg.
     </p>
 
-    <h3>Computer Vision</h3>
+    <h3>Trigger Mechanism</h3>
     <p>
-      OpenCV was used for obstacle detection from camera frames.
+      Initially, I attempted to make a valve to control the release of the CO2 from the canisters, but due 
+      to the small-size of the canister and the precision of the tools I had available, I was unable to 
+      construct an effective nozzle. I instead switched to simple puncture mechanism, pictued below. 
     </p>
 
-    <h3>Control System</h3>
+    <h3>Car Test</h3>
     <p>
-      A simple reactive controller was implemented to adjust robot direction
-      based on obstacle proximity.
+      The vehicle body was 3D-printed and attached to the Armma Vendetta RC Car Chasis, which I stripped 
+      of excess parts to reduce weight and modified with a wheel-locking mechanism to prevent turning.
+    </p>
+
+    <p>
+      As evident in the short video, the final vehicle moved too slowly for us to validate the CFD data. 
+      However, we were still able to compare the efficiency of the biofuel with standard pump diesel. 
     </p>
 
   </section>
+  <section>
+    <p>
+      During the car test, only two of the six canisters ended up puncturing during each trial. From the car tests,
+      we concluded that 93.5% of the work done by the canisters was lost to friction, as our average measured top speed
+      was 0.29 mph whereas our theoretical top speed was 5.68 mph. 
+    </p>
 
+    <p>
+      Two CO2 canisters contained 33.04 g of CO2. Using calorimetry data my partner collected from his biofuel and standard pump
+      diesel, we found the energy contained in an equivalent mass of both biofuel and standard pump diesel. We then assumed only 40% of
+      this energy would end up as useful work, accounting for inefficieny of an internal combustion engine that would be needed to ignite
+      the fuel. After then accounting for the work that we determined would be lost to friction from the car tests, we determined that the 
+      car speed with the biodiesel would be 70.0 mph and the car speed with the standard diesel would be 89.0 mph, indicating that our 
+      biodiesel was less efficient than standard pump diesel. Notably, at these speeds air resistance would become relevant, so these 
+      calculated speeds are likely higher than they would be in reality. 
+    </p>
+  </section>
   <!-- =========================
        CHALLENGES
   ========================== -->
@@ -255,25 +280,9 @@
     <h2>Challenges</h2>
 
     <ul>
-      <li>Handling inconsistent sensor updates at high frequency</li>
-      <li>Reducing latency in decision loop from 180ms → 40ms</li>
-      <li>Synchronizing camera and LiDAR timestamps</li>
-    </ul>
-
-  </section>
-
-  <!-- =========================
-       RESULTS
-  ========================== -->
-
-  <section>
-
-    <h2>Results</h2>
-
-    <ul>
-      <li>Achieved 40ms average decision latency</li>
-      <li>Improved obstacle detection stability by ~30%</li>
-      <li>Maintained real-time operation at 60 FPS input</li>
+      <li>Creating test environments that gave useful and repeated measurements</li>
+      <li>Designing subsystems that were manufaturable based on the precision of available equipment</li>
+      <li>Validating simulation results with real life data</li>
     </ul>
 
   </section>
@@ -286,11 +295,11 @@
 
     <h2>Lessons Learned</h2>
 
-    <p>
-      The biggest improvement came from simplifying the pipeline rather than
-      adding complexity. Early versions overcomplicated sensor fusion, which
-      increased latency instead of improving accuracy.
-    </p>
+   <ul>
+      <li>More test trials gave more precise data which allowed us to better inform our design decisions</li>
+      <li>Avoiding design fixation: roughly five nozzles were prototyped for the canisters (all with the same manufacturing issues), and I could have saved more 
+      time if I brainstormed other ignition possibilities earlier</li>
+    </ul>
 
   </section>
 
