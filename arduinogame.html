@@ -21,7 +21,7 @@
 
   <header class="project-hero">
 
-    <h1>zArduino Tilt-Table Maze Game</h1>
+    <h1>Arduino Tilt-Table Maze Game</h1>
 
     <p class="project-tagline">
       A Hansel and Gretel themed tilt-table arcade game.
@@ -57,7 +57,7 @@
     The following excerpts are from a design journal I kept during the duration of the project. They help outline the various design interations, prototyping,
     and troubleshooting work I did during the project. 
   </p>
-
+    
 <figure>
   <img src="datacollection1.png" alt="Data Collection" class="content-image">
 
@@ -68,44 +68,13 @@
 
 <h2> SolidWorks Drawings </h2>
   <p>
-    I then created data visuals in Python based on each parameter to determine which features have the highest correspondence to 
-    soccer shot success. This process allowed me to eliminate parameters that showed no direct correlation to shot success from
-    the AI model's training data set, making it easier for the model to make accurate predictions. I used Google Colab as my coding 
-    platform and decided to represent my data in color-coded scatter plots as they best illustrated the correlations between parameters
-    and shot success.
+    I CADed the sub-assembly and all of the necessary components in SolidWorks. The drawings were then used to laser cut the pieces out of 
+    wood or acrylic.
   </p>
 
-<figure>
-  <img src="scatterplotcode.png" alt="Scatter Plot Code" class="content-image">
-
-  <figcaption>
-   Example of Code for a Scatter Plot
-  </figcaption>
-</figure>
-<p>
-  After creating the following scatter plots, I decided to eliminate ball height and shot location on goal frame from the set of parameters
-  used to train the AI model, as their scatter plots indicated no direct correlation between these parameters and shot success. I also eliminated
-  goalkeeper location data from the parameters, as, based on my soccer knowledge, the true inidcator of a shot's success is the goalkeeper's position
-  relative to the location of the shot on frame. 
-</p>
-<figure>
-  <img src="playerlocation.png" alt="Scatter Plot Code" class="content-image">
-</figure>
-<figure>
-  <img src="shotspeed.png" alt="Scatter Plot Code" class="content-image">
-</figure>
-<figure>
-  <img src="contactpoint.png" alt="Scatter Plot Code" class="content-image">
-</figure>
-<figure>
-  <img src="ballheight.png" alt="Scatter Plot Code" class="content-image">
-</figure>
-<figure>
-  <img src="players.png" alt="Scatter Plot Code" class="content-image">
-</figure>
-<figure>
-  <img src="shotlocation.png" alt="Scatter Plot Code" class="content-image">
-</figure>
+  <a href="arduinodrawings.pdf" target="_blank">
+    View SolidWorks Drawings Set
+</a>
   
 <h2> AI Training </h2>
     <p> 
