@@ -1,1 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>High-Temperature Wind Tunnel Test Section Redesign</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- BACK LINK -->
+  <a href="index.html">← Back to Portfolio</a>
+
+  <!-- =========================
+       PROJECT TITLE / HERO
+  ========================== -->
+
+  <header class="project-hero">
+
+    <h1>High-Temperature Wind Tunnel Redesign</h1>
+
+    <p class="project-tagline">
+    </p>
+
+    <!-- Optional: image or demo -->
+
+  </header>
+
+  <!-- =========================
+       OVERVIEW
+  ========================== -->
+
+  <section>
+
+    <h2>Overview</h2>
+    <p>
+      Along with my other responsibilities in the Ni Fluid Transport Lab at Johns Hopkins University, I was tasked with redesiging the test section of the facility's
+      high-temperature wind tunnel, which is used to study high-temperature particle deposition in jet engine components. This project is ongoing, with the final goal
+      being to construct my design and implement it into the next iteration of particle deposition tests.
+
+      Attached is a slideshow giving greater depth to the project than this page prvodies. The slideshow consists of the slides I presented to the lab once a week,
+      detailing my design developments.
+    </p>
+
+  <!-- =========================
+       SYSTEM ARCHITECTURE
+  ========================== -->
+  <section>
+
+    <h2>Design Requirments and Problems</h2>
+  <p>
+    Prior to my arrival at the lab, the test section of the wind tunnel contained a removable base plate on which the particle deposition occured. However, the previous design 
+    contained a large number of fasteners, many of which galled during the tunnel's thermal cycle up to 1100°C. The tunnel also only accomodated base plates of 310 stainless steel, 
+    limiting the number of materials on which we could test the particle depostion. The aim of my project is to redesign the test section to accomodate removable base plates of various 
+    materials, such as 310 stainless steel, ceramic, and tungsten, while reducing the number of fasteners to allow for easier assembly/disassembly and minimize galling risk in future tests.
+
+    The design objectives present various challanges, such as creating a multi-material joint geometries that account for the differential thermal expansion of the various materials discussed
+    above during thermal cycling up to 1100°C. The extreme temperature change eliminates standard fastener stacks and mechanical clamping mechanisms from design possibilites. Additionally,
+    the top edge of the base plate (corresponding to the air-flow direction) must remain flush with the surrounding tunnel (having a gap no larger than 0.005") to prevent boundary-layer tripping.
+    The broader structural dimensions of the test section could also not change greatly so that the section would still fit inside the customized insulation that the lab already possessed.
+  </p>
+    
+<figure>
+  <img src="datacollection1.png" alt="Data Collection" class="content-image">
+
+  <figcaption>
+   Visual 1 of Collected Situational Parameters
+  </figcaption>
+</figure>
+
+<h2> Design Ideas</h2>
+  <p>
+  After considerable research and brainstorming, I settled on creating a 310 stainless steel wedge (which would slide in and out of the broader test section) that would be attached to a thin, removable base plate of the desired material. 
+  As for fastening the removable base plate to the wedge, I settled on two main design ides: an adhesive design similar to that used by NASA heat-shield insulation systems for the space shuttle program, and a pin-slot fastener design 
+  patented by RTX Corp in ... I then modified the design concepts found in these resources to fit the test section design, accounting for the manufacturability of the stainless steel and ceramic components and my design specifications. 
+
+  The main idea of the adhesive design is that the foam layer between the stainless steel and other material absorbs the differential expansion between the materials, stretching but keeping the two materials fastened. The main idea of the 
+  fastener design is that the pin-slot system forces the expansion away from the top edge of the base plate, with the slot accounting for the differential rates of expansion between materials and preventing joint failure. Both designs presented 
+  problems; the adhesive design had the potential to fail under shear stresses, and the gaps along the sides and the bottom of the base plate may be too large to maintain laminar flow throughout the test section. On the other hand, with the 
+  fastener design, creating a fastener stack that survives up to 1100°C without losing significant clamping force would require expensive custom made parts and be much more difficult to manufacture, along with an increased risk of galling. 
+  </p>
+
+  <a href="arduinodrawings.pdf" target="_blank">
+    View SolidWorks Drawings Set
+</a>
+  
+<h2> Design Validation </h2>
+    <p> 
+      Before choosing and finalizing a design, I developed a test procedure to verify that the concepts presented above remained true. Here is a link to the procedure. The main focus of the adhesive test was proof of concept; I needed to see
+      if the design would fail due to shear stresses. The focus of the fastener experiment was to see if the system truly forced the the expansion away from the top edge of the base plate without causing the material with the lower coefficient
+      of thermal expansion to fracture. The adhesive test required a much simpler set-up, whereas the fastener test required a camera system to track the top edge displacement through the thermal cycling. I designed the camera set-up to be 
+      compatible with a 2D or stereo-DIC system in case I wished to later create a strain map of the material. 
+    </p>
+<figure>
+  <img src="trainingsetup.png" alt="Scatter Plot Code" class="content-image">
+</figure>
+    <p>
+      I then trained a RandomForestClassifier with the dataset. After the model tested itself, it determined that it should have an accuracy of rouhgly 88%. 
+    </p>
+<figure>
+  <img src="randomforestclassifier.png" alt="Scatter Plot Code" class="content-image">
+</figure>
+<h2> AI Testing</h2>
+    <p>
+      I tested the model by feeding it inputs that should have yielded "Yes" (the shot was successful) or "No" (the shot was unsuccesful). I fed it four test 
+      cases, and it only predicted two correctly (50% accuracy), indicating that there are likely flaws within the model. However, four test cases is a very 
+      small number, and with more test cases, the model's accuracy could increase. 
+    </p>
+  <figure>
+  <img src="test1.png" alt="Scatter Plot Code" class="content-image">
+</figure>
+  <figure>
+  <img src="test2.png" alt="Scatter Plot Code" class="content-image">
+</figure>
+<h2> Next Steps </h2>
+    <ul>
+      <li>Write code that will write a random array of numbers to test the model hundreds of more times</li>
+      <li>Write code that will create visuals to match the arrays and predictions like the previous visuals created for data analysis</li>
+      <li>See if the visuals created based on the model’s predictions and the visuals created based on the data match one another to determine if the model 
+        was predicting shot success relatively correctly</li>
+      <li>Keep training the model to improve accuracy</li>
+    </ul>
+</body>
+</html>
