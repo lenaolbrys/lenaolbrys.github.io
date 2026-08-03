@@ -1,0 +1,102 @@
+#include <Servo.h>
+
+int trigPin = 7;
+int echoPin = 6;
+int servoPin = 3;
+
+#define RED 11
+#define GREEN 10
+
+Servo myServo;
+
+bool waitingToStart = false; 
+bool running = false;        
+unsigned long detectTime = 0; 
+unsigned long startTime = 0;  
+
+// --- SETTINGS ---
+// DECREASED: 1.4 cm (Very slightly less than 1.5 cm)
+float triggerDistance = 1.4; 
+unsigned long delayTime = 5000; // 5 second delay before spinning
+unsigned long runTime = 2000;   // 2 seconds of spinning
+// ----------------
+
+const int START_POS = 90;
+const int ACTIVE_POS = 0;
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(RED, OUTPUT);
+  pinMode(GREEN, OUTPUT);
+
+  myServo.attach(servoPin);
+  myServo.write(START_POS);
+
+  digitalWrite(RED, LOW);
+  digitalWrite(GREEN, HIGH);
+
+  Serial.begin(115200); 
+}
+
+long getSingleDistance() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(5); 
+  digitalWrite(trigPin, LOW);
+
+  // Extremely tight timeout for ultra-close detection
+  long duration = pulseIn(echoPin, HIGH, 1000); 
+  if (duration == 0) return -1;
+  return duration * 0.034 / 2;
+}
+
+void loop() {
+  // 1. SENSOR CHECK
+  if (!waitingToStart && !running) {
+    bool ballDetected = false;
+    for(int i = 0; i < 3; i++) {
+      long d = getSingleDistance();
+      if (d > 0.3 && d <= triggerDistance) {
+        ballDetected = true;
+        break; 
+      }
+      delayMicroseconds(100); 
+    }
+
+    if (ballDetected) {
+      waitingToStart = true;
+      detectTime = millis();
+      Serial.print("Ball seen at ");
+      Serial.print(triggerDistance);
+      Serial.println("cm! Waiting 5s...");
+      
+      digitalWrite(GREEN, LOW); 
+    }
+  }
+
+  // 2. DELAY LOGIC
+  if (waitingToStart && !running) {
+    if (millis() - detectTime >= delayTime) {
+      waitingToStart = false;
+      running = true;
+      startTime = millis();
+
+      digitalWrite(RED, HIGH);
+      myServo.write(ACTIVE_POS);
+      Serial.println("Spinning wheel!");
+    }
+  }
+
+  // 3. RUN LOGIC
+  if (running && (millis() - startTime >= runTime)) {
+    running = false;
+    myServo.write(START_POS);
+
+    digitalWrite(RED, LOW);
+    digitalWrite(GREEN, HIGH);
+    
+    delay(500); // Cooldown
+  }
+}
