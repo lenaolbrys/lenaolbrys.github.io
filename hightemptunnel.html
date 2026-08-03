@@ -96,34 +96,5 @@
       of thermal expansion to fracture. The adhesive test required a much simpler set-up, whereas the fastener test required a camera system to track the top edge displacement through the thermal cycling. I designed the camera set-up to be 
       compatible with a 2D or stereo-DIC system in case I wished to later create a strain map of the material. 
     </p>
-<figure>
-  <img src="trainingsetup.png" alt="Scatter Plot Code" class="content-image">
-</figure>
-    <p>
-      I then trained a RandomForestClassifier with the dataset. After the model tested itself, it determined that it should have an accuracy of rouhgly 88%. 
-    </p>
-<figure>
-  <img src="randomforestclassifier.png" alt="Scatter Plot Code" class="content-image">
-</figure>
-<h2> AI Testing</h2>
-    <p>
-      I tested the model by feeding it inputs that should have yielded "Yes" (the shot was successful) or "No" (the shot was unsuccesful). I fed it four test 
-      cases, and it only predicted two correctly (50% accuracy), indicating that there are likely flaws within the model. However, four test cases is a very 
-      small number, and with more test cases, the model's accuracy could increase. 
-    </p>
-  <figure>
-  <img src="test1.png" alt="Scatter Plot Code" class="content-image">
-</figure>
-  <figure>
-  <img src="test2.png" alt="Scatter Plot Code" class="content-image">
-</figure>
-<h2> Next Steps </h2>
-    <ul>
-      <li>Write code that will write a random array of numbers to test the model hundreds of more times</li>
-      <li>Write code that will create visuals to match the arrays and predictions like the previous visuals created for data analysis</li>
-      <li>See if the visuals created based on the model’s predictions and the visuals created based on the data match one another to determine if the model 
-        was predicting shot success relatively correctly</li>
-      <li>Keep training the model to improve accuracy</li>
-    </ul>
 </body>
 </html>
